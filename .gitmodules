@@ -1,0 +1,3 @@
+[submodule "Packages/DanPieFramework"]
+	path = Packages/DanPieFramework
+	url = https://github.com/DanyloSih/DanPieFramework.git
