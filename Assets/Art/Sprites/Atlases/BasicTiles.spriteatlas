@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BasicTiles
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 2
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 4e774dac5c236b744900683b5239789f, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 267706427, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 506313461, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 502579192, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -1492093955, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -560795166, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -1951727425, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -2057159688, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -1134208641, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -686347770, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 242063417, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 1811446250, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -452344100, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -2143986321, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: -179359455, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 2025562775, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  - {fileID: 1109928091, guid: 1bde7d09e0737644194d5cf7a69a0362, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - mountain_tile
+  - forest_tile
+  - water_tile
+  - sand_tile
+  - tiles_14
+  - tiles_15
+  - tiles_12
+  - tiles_13
+  - tiles_10
+  - tiles_11
+  - tiles_7
+  - tiles_6
+  - tiles_5
+  - tiles_9
+  - tiles_8
+  - meadow_tile
+  m_RenderDataMap: {}
+  m_Tag: BasicTiles
+  m_IsVariant: 0
