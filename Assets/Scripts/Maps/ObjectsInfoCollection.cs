@@ -1,42 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DanPie.Framework.Exceptions;
-using UnityEngine;
-using Zenject;
 
 namespace FlatVillage.Maps
 {
-    public abstract class ObjectsInfoCollection<T> : ScriptableObject, IInitializable
-        where T: ObjectInfo
+    public class ObjectsInfoCollection<T> : IObjectsInfoCollection<T>
+        where T : ObjectInfo
     {
-        protected abstract List<T> ObjectsInfo { get; }
+        private List<T> _collection = new List<T>();
 
-        private bool _idsUpdated = false;
-
-        public int GetTilesCount()
+        public ObjectsInfoCollection(List<T> collection)
         {
-            return ObjectsInfo.Count;
-        }
-
-        public T GetTileInfoByID(int id)
-        {
-            if (id != Mathf.Clamp(id, 0, ObjectsInfo.Count - 1))
+            _collection = collection;
+            int counter = 0;
+            foreach (var item in _collection)
             {
-                throw new ArgumentException($"Unable to get information about tile with id {id}! The " +
-                    $"collection has information about tiles only in the range from 0 to {ObjectsInfo.Count - 1}.");
+                item.InitializeID(counter);
+                counter++;
             }
-
-            return ObjectsInfo[id];
         }
 
-        public T GetTileInfoByName(string tileName)
+        public T GetByID(int id)
         {
-            UpdateTilesInfoIDs();
+            return _collection[id];
+        }
+
+        public T GetByName(string tileName)
+        {
             T result = null;
             try
             {
-                result = ObjectsInfo.First(x => x.Name == tileName);
+                result = _collection.First(x => x.Name == tileName);
             }
             catch (InvalidOperationException)
             {
@@ -47,36 +41,9 @@ namespace FlatVillage.Maps
             return result;
         }
 
-        public void OnEnable()
+        public int GetObjectsCount()
         {
-            _idsUpdated = false;
-        }
-
-        public void Initialize()
-        {
-            if (ObjectsInfo.Count == 0)
-            {
-                throw new FieldDataException(GetType().Name, nameof(ObjectsInfo),
-                    "It makes no sense to leave this field empty, the collection must contain at least one element!");
-            }
-
-            UpdateTilesInfoIDs();
-        }
-
-        private void UpdateTilesInfoIDs()
-        {
-            if (_idsUpdated)
-            {
-                return;
-            }
-            _idsUpdated = true;
-
-            int counter = 0;
-            foreach (T tileInfo in ObjectsInfo)
-            {
-                tileInfo.InitializeID(counter);
-                counter++;
-            }
+            return _collection.Count;
         }
     }
 }

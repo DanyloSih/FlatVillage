@@ -1,11 +1,9 @@
-﻿using System;
-using DanPie.Framework.Common;
+﻿using DanPie.Framework.Common;
 using UnityEngine;
 
 namespace FlatVillage.Maps
 {
-    [Serializable]
-    public class ObjectInfo : IObjectInfo
+    public abstract class ScriptableObjectInfo : ScriptableObject, IObjectInfo
     {
         [SerializeField] private string _name;
 
@@ -24,10 +22,13 @@ namespace FlatVillage.Maps
             _id = id;
         }
 
-        public ObjectInfo(string name, int id)
+        public void OnEnable()
         {
-            _name = name;
-            _id = id;
+            _id = 0;
+            _isInitialized = false;
+            OnEnabled();
         }
+
+        protected virtual void OnEnabled() { }
     }
 }

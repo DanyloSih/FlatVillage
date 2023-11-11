@@ -3,7 +3,7 @@ using FlatVillage.Maps;
 using UnityEngine;
 using Zenject;
 
-namespace FlatVillage.Controls
+namespace FlatVillage.Tests.Controls
 {
     public class MapTouchProvider : MonoBehaviour
     {
@@ -37,16 +37,16 @@ namespace FlatVillage.Controls
                         Mathf.RoundToInt(hitPoint.x - 0.5f),
                         Mathf.RoundToInt(hitPoint.y - 0.5f)
                     );
-                    tileCenter += _baseMap.CurrentMap.Size / 2;
+                    tileCenter += _baseMap.Matrix.Size / 2;
 
                     _baseMap.SetTile(tileCenter, 0);
-                    var neighbors = _baseMap.CurrentMap.GetNeighboursOfMatrixMember(tileCenter)
+                    var neighbors = _baseMap.Matrix.GetNeighboursOfMatrixMember(tileCenter)
                         .GetAvailableNeighbours().ToList();
 
                     for (int i = 0; i < neighbors.Count; i++)
                     {
                         _baseMap.SetTile(
-                            _baseMap.CurrentMap.FromIDToVector(neighbors[i].Value.ID), i % 5);
+                            _baseMap.Matrix.FromIDToVector(neighbors[i].Value.ID), i % 5);
                     }
                 }
             }

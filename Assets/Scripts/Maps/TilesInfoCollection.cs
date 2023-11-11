@@ -8,7 +8,7 @@ namespace FlatVillage.Maps
         fileName = "TilesInfoCollection",
         menuName = "ObjectsInfo/TilesInfoCollection",
         order = 0)]
-    public class TilesInfoCollection : ObjectsInfoCollection<TileInfo>
+    public class TilesInfoCollection : ScriptableObjectsInfoCollection<TileInfo>
     {
         [SerializeField] private List<TileInfo> _tilesInfo = new List<TileInfo>();
 

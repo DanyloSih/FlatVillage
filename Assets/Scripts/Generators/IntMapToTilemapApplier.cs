@@ -59,7 +59,7 @@ namespace FlatVillage.Generators
 
             _tilemap.SetTile(
                 new Vector3Int(tilePointInMatrix.x, tilePointInMatrix.y, 0) - _offset3D,
-                _baseTilesInfoCollection.GetTileInfoByID(newTileID).Tile);
+                _baseTilesInfoCollection.GetByID(newTileID).Tile);
         }
 
         private void UpdateTilemap()
@@ -73,7 +73,7 @@ namespace FlatVillage.Generators
                 {
                     _tilemap.SetTile(
                         new Vector3Int(x, y, 0) - _offset3D,
-                        _baseTilesInfoCollection.GetTileInfoByID(_map[x, y]).Tile);
+                        _baseTilesInfoCollection.GetByID(_map[x, y]).Tile);
                 }
             }
         }

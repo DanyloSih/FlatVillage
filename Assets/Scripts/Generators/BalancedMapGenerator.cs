@@ -24,7 +24,7 @@ namespace FlatVillage.Generators
 
         private Random _rand = new Random();
         private MatrixRepresentationInt _currentMap;
-        private ObjectsInfoCollection<TileInfo> _baseMapTilesInfo;
+        private IObjectsInfoCollection<TileInfo> _baseMapTilesInfo;
         private ObjectInfo _water;
         private ObjectInfo _sand;
         private ObjectInfo _meadow;
@@ -37,11 +37,11 @@ namespace FlatVillage.Generators
         public void Construct(BasicMap baseMap)
         {
             _baseMapTilesInfo = baseMap.ObjectsInfo;
-            _sand = _baseMapTilesInfo.GetTileInfoByName("sand");
-            _water = _baseMapTilesInfo.GetTileInfoByName("water");
-            _meadow = _baseMapTilesInfo.GetTileInfoByName("meadow");
-            _forest = _baseMapTilesInfo.GetTileInfoByName("forest");
-            _mountain = _baseMapTilesInfo.GetTileInfoByName("mountain");
+            _sand = _baseMapTilesInfo.GetByName("sand");
+            _water = _baseMapTilesInfo.GetByName("water");
+            _meadow = _baseMapTilesInfo.GetByName("meadow");
+            _forest = _baseMapTilesInfo.GetByName("forest");
+            _mountain = _baseMapTilesInfo.GetByName("mountain");
         }
 
         public GenerationOperations Generate(out MatrixRepresentationInt map)

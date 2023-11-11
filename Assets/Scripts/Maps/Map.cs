@@ -6,25 +6,25 @@ using UnityEngine.Tilemaps;
 namespace FlatVillage.Maps
 {
     public class Map<TData, TObjectInfo>
-        where TObjectInfo : ObjectInfo
+        where TObjectInfo : class, IObjectInfo
     {
         private MatrixRepresentation<TData> _map;
-        private ObjectsInfoCollection<TObjectInfo> _objectsInfo;
+        private IObjectsInfoCollection<TObjectInfo> _objectsInfo;
         private Tilemap _tilemap;
         private IMapToTilemapApplier<TData> _mapApplier;
 
-        public IReadonlyMatrixRepresentation<TData> CurrentMap { get => _map; }
-        public ObjectsInfoCollection<TObjectInfo> ObjectsInfo { get => _objectsInfo; }
+        public IReadonlyMatrixRepresentation<TData> Matrix { get => _map; }
+        public IObjectsInfoCollection<TObjectInfo> ObjectsInfo { get => _objectsInfo; }
         public Tilemap Tilemap { get => _tilemap; }
         public IMapToTilemapApplierReadonly MapApplier { get => _mapApplier; }
 
         public Map(
-            ObjectsInfoCollection<TObjectInfo> tilesInfo,
+            IObjectsInfoCollection<TObjectInfo> objectsInfo,
             Tilemap tilemap,
             IMapToTilemapApplier<TData> mapToTilemapApplier)
         {
             _mapApplier = mapToTilemapApplier;
-            _objectsInfo = tilesInfo;
+            _objectsInfo = objectsInfo;
             _tilemap = tilemap;
             _map = new MatrixRepresentation<TData>(1, 1);
         }

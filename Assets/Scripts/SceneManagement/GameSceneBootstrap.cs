@@ -38,10 +38,10 @@ namespace FlatVillage.SceneManagement
             _loadingWindow = _windowsCanvasesManager.Main.InstanceOf(_loadingWindowPrefab);
             _debugInfoWindow = _windowsCanvasesManager.Debug.InstanceOf(_debugInfoWindowPrefab);
             _windowsCanvasesManager.Debug.ShowAlso(_debugInfoWindow.GetType());
-            StartCoroutine(StartMapGenerationProcess());
+            StartCoroutine(MapGenerationProcess());
         }
 
-        public IEnumerator StartMapGenerationProcess()
+        public IEnumerator MapGenerationProcess()
         {
             _windowsCanvasesManager.Main.ShowOnly(_loadingWindow.GetType());
             var operations = _mapGenerator.Generate(out MatrixRepresentationInt map);

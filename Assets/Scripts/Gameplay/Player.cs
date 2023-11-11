@@ -2,6 +2,10 @@
 
 namespace FlatVillage.Gameplay
 {
+    public class PlayersFactory
+    {
+    }
+
     public class Player : IPlayer
     {
         private int _id;

@@ -24,7 +24,7 @@ namespace FlatVillage.Gameplay
 
         public bool IsShown()
         {
-            return _baseMap.CurrentMap.IsPointInside(_tilePositionInMatrix);
+            return _baseMap.Matrix.IsPointInside(_tilePositionInMatrix);
         }
 
         public bool TryInvoke()

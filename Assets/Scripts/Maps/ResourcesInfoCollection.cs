@@ -7,7 +7,7 @@ namespace FlatVillage.Maps
         fileName = "ResourcesInfoCollection",
         menuName = "ObjectsInfo/ResourcesInfoCollection",
         order = 0)]
-    public class ResourcesInfoCollection : ObjectsInfoCollection<ResourceInfo>
+    public class ResourcesInfoCollection : ScriptableObjectsInfoCollection<ResourceInfo>
     {
         [SerializeField] private List<ResourceInfo> _resourcesInfo = new List<ResourceInfo>(); 
 
