@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace FlatVillage.Maps
 {
@@ -8,10 +7,10 @@ namespace FlatVillage.Maps
         fileName = "TilesInfoCollection",
         menuName = "ObjectsInfo/TilesInfoCollection",
         order = 0)]
-    public class TilesInfoCollection : ScriptableObjectsInfoCollection<TileInfo>
+    public class TilesInfoCollection : IndexableWithItemInfoObjectsCollection<TileInfo>
     {
         [SerializeField] private List<TileInfo> _tilesInfo = new List<TileInfo>();
 
-        protected override List<TileInfo> ObjectsInfo { get => _tilesInfo; }
+        protected override List<TileInfo> CollectionObjects { get => _tilesInfo; }
     }
 }

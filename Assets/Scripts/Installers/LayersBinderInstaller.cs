@@ -7,7 +7,7 @@ namespace FlatVillage.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<LayersBinder>().To<LayersBinder>().AsSingle();
+            Container.Bind<LayersTilesProvider>().To<LayersTilesProvider>().AsSingle();
         }
     }
 }

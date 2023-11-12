@@ -13,26 +13,13 @@ MonoBehaviour:
   m_Name: BaseTilesInfoCollection
   m_EditorClassIdentifier: 
   _tilesInfo:
-  - _name: water
+  - _itemInfo: {fileID: 11400000, guid: 9a8bd76ca69f56749a0f3d9fa6874814, type: 2}
     _tile: {fileID: 11400000, guid: d517fb266c6fa734781f8c40e1bb952a, type: 2}
-    _resourceExtractionInfo:
-    - _resourceName: food
-      _extractionValue: 1
-  - _name: sand
+  - _itemInfo: {fileID: 11400000, guid: 02dd523b2586f074894bbe9f766c8875, type: 2}
     _tile: {fileID: 11400000, guid: 84d153fbc9aaa2648a226b829d86adfd, type: 2}
-    _resourceExtractionInfo: []
-  - _name: meadow
+  - _itemInfo: {fileID: 11400000, guid: d6da43c7dbbc1f6499250df8c1a91047, type: 2}
     _tile: {fileID: 11400000, guid: e4b78e39094b2924e8ecab4db3353139, type: 2}
-    _resourceExtractionInfo:
-    - _resourceName: food
-      _extractionValue: 1
-  - _name: forest
+  - _itemInfo: {fileID: 11400000, guid: a798c35088d42f545bc0951abf698640, type: 2}
     _tile: {fileID: 11400000, guid: 051a9c02b509e6c4ca85c409cdda45fe, type: 2}
-    _resourceExtractionInfo:
-    - _resourceName: wood
-      _extractionValue: 1
-  - _name: mountain
+  - _itemInfo: {fileID: 11400000, guid: 8fe9234923feadd4b95b9ad6dd4a29cb, type: 2}
     _tile: {fileID: 11400000, guid: e53aca88803a16c40a9211439af84a36, type: 2}
-    _resourceExtractionInfo:
-    - _resourceName: rock
-      _extractionValue: 1

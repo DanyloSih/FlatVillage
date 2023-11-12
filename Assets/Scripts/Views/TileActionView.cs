@@ -16,14 +16,14 @@ namespace FlatVillage.Views
         [SerializeField] private float _errorAnimationTime = 1.5f;
 
         private Color _startColor;
-        private ITileAction _tileAction;
+        private ITileActionInfo _tileAction;
         private Coroutine _errorAnimationCoroutine;
 
-        public void Initialize(ITileAction tileAction)
+        public void Initialize(ITileActionInfo tileAction)
         {
             _startColor = _background.color;
             _tileAction = tileAction;
-            _actionText.text = tileAction.GetText();
+            _actionText.text = tileAction.GetItemInfo().GetDisplayName();
         }
 
         protected void OnEnable()

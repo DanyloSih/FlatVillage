@@ -1,27 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using FlatVillage.Resources;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace FlatVillage.Maps
 {
     [Serializable]
-    public class TileInfo : ObjectInfo
+    public class TileInfo : IndexableObject, IObjectWithItemInfo
     {
+        [SerializeField] private ItemInfo _itemInfo;
         [SerializeField] private TileBase _tile;
-        [SerializeField] private List<ResourceExtractionInfo> _resourceExtractionInfo;
+
+        /// <summary>
+        /// DO NOT USE THIS! Created for serialization.
+        /// </summary>
+        public TileInfo() : base(0)
+        {
+        }
 
         public TileInfo(
-            string tileName,
             int id,
-            List<ResourceExtractionInfo> resourceExtractionInfo,
-            TileBase tile) : base(tileName, id)
+            TileBase tile,
+            ItemInfo itemInfo) : base(id)
         {
-            _resourceExtractionInfo = resourceExtractionInfo;
             _tile = tile;
+            _itemInfo = itemInfo;
         }
 
         public TileBase Tile { get => _tile; }
-        public List<ResourceExtractionInfo> ResourceExtractionInfo { get => _resourceExtractionInfo; }
+        public ItemInfo ItemInfo { get => _itemInfo; }
     }
 }

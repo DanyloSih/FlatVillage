@@ -1,11 +1,16 @@
-﻿using UnityEngine;
+﻿using FlatVillage.Resources;
+using UnityEngine;
 
 namespace FlatVillage.Maps
 {
-    public interface ILayerProviderBase : IObjectInfo
+    public interface ILayerProviderBase : IIndexableObject
     {
-        public Vector2Int GetMatrixSize();
-        public ILayerTile GetLayerTile(Vector2Int position);
         public bool IsInitialized { get; }
+        public ItemInfo ItemInfo { get; }
+
+        public Vector2Int GetMatrixSize();
+
+        public LayerTileInfo GetLayerTile(Vector2Int position);
+
     }
 }

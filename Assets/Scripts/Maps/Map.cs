@@ -6,27 +6,30 @@ using UnityEngine.Tilemaps;
 namespace FlatVillage.Maps
 {
     public class Map<TData, TObjectInfo>
-        where TObjectInfo : class, IObjectInfo
+        where TObjectInfo : class, IIndexableObject
     {
         private MatrixRepresentation<TData> _map;
-        private IObjectsInfoCollection<TObjectInfo> _objectsInfo;
+        private IIndexableObjectsCollection<TObjectInfo> _objectsInfo;
         private Tilemap _tilemap;
-        private IMapToTilemapApplier<TData> _mapApplier;
+        private IMapTilesUpdater<TData> _mapApplier;
+        private ITilemapMatrixPointsConverter<TData> _tilemapMatrixPointsConverter;
 
         public IReadonlyMatrixRepresentation<TData> Matrix { get => _map; }
-        public IObjectsInfoCollection<TObjectInfo> ObjectsInfo { get => _objectsInfo; }
+        public IIndexableObjectsCollection<TObjectInfo> ObjectsInfo { get => _objectsInfo; }
         public Tilemap Tilemap { get => _tilemap; }
-        public IMapToTilemapApplierReadonly MapApplier { get => _mapApplier; }
+        public ITilemapMatrixPointsConverter<TData> TilemapMatrixPointsConverter { get => _tilemapMatrixPointsConverter; }
 
         public Map(
-            IObjectsInfoCollection<TObjectInfo> objectsInfo,
+            IIndexableObjectsCollection<TObjectInfo> objectsInfo,
             Tilemap tilemap,
-            IMapToTilemapApplier<TData> mapToTilemapApplier)
+            IMapTilesUpdater<TData> mapToTilemapApplier,
+            ITilemapMatrixPointsConverter<TData> tilemapMatrixPointsConverter)
         {
             _mapApplier = mapToTilemapApplier;
             _objectsInfo = objectsInfo;
             _tilemap = tilemap;
             _map = new MatrixRepresentation<TData>(1, 1);
+            _tilemapMatrixPointsConverter = tilemapMatrixPointsConverter;
         }
 
         public Vector2Int WorldPositionToMatrixPosition(Vector2 worldPoint)
@@ -35,7 +38,7 @@ namespace FlatVillage.Maps
                 Mathf.RoundToInt(worldPoint.x - 0.5f),
                 Mathf.RoundToInt(worldPoint.y - 0.5f));
 
-            return _mapApplier.TilemapPointToMatrixPoint(tilePoint);
+            return _tilemapMatrixPointsConverter.TilemapPointToMatrixPoint(tilePoint);
         }
 
         public void SetTile(Vector2Int tilePositionInMatrix, int tileID)
@@ -46,6 +49,7 @@ namespace FlatVillage.Maps
         public void UpdateMap(MatrixRepresentation<TData> map)
         {
             _map = map;
+            _tilemapMatrixPointsConverter.SetNewMatrix(map);
             _mapApplier.SetNewMatrix(map);
         }
     }

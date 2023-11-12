@@ -13,8 +13,12 @@ namespace FlatVillage.Installers
 
         public override void InstallBindings()
         {
-            var mapApplier = new IntMapToTilemapApplier(_tilemap, _tilesInfo);
-            Container.Bind(typeof(BasicMap)).FromInstance(new BasicMap(_tilesInfo, _tilemap, mapApplier)).AsSingle();
+            var mapApplier = new BaseMapTilesUpdater(_tilemap, _tilesInfo);
+            var pointsConverter = new TilemapMatrixPointsViaOffsetConverter();
+
+            Container.Bind<TilesInfoCollection>().FromInstance(_tilesInfo);
+            Container.Bind(typeof(BasicMap)).FromInstance(
+                new BasicMap(_tilesInfo, _tilemap, mapApplier, pointsConverter)).AsSingle();
         }
     }
 }

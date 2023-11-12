@@ -6,9 +6,9 @@ namespace FlatVillage.Maps
     public static class IObjectsInfoCollectionExtensions
     {
         public static void CheckAssociation<T>(
-            this IObjectsInfoCollection<T> objectsInfoCollection,
+            this IIndexableObjectsCollection<T> objectsInfoCollection,
             List<T> associatedList)
-             where T : class, IObjectInfo
+             where T : class, IIndexableObject
         {
             List<T> majorList = objectsInfoCollection.ToList();
             CheckListIDs(majorList, nameof(majorList));
@@ -30,8 +30,8 @@ namespace FlatVillage.Maps
             }
         }
 
-        public static List<T> ToList<T>(this IObjectsInfoCollection<T> objectsInfoCollection)
-            where T : class, IObjectInfo
+        public static List<T> ToList<T>(this IIndexableObjectsCollection<T> objectsInfoCollection)
+            where T : class, IIndexableObject
         {
             List<T> result = new List<T>();
             for (int i = 0; i < objectsInfoCollection.GetObjectsCount(); i++)
@@ -43,7 +43,7 @@ namespace FlatVillage.Maps
         }
 
         private static void CheckListIDs<T>(List<T> list, string listName)
-            where T : class, IObjectInfo
+            where T : class, IIndexableObject
         {
             for (int i = 0; i < list.Count; i++)
             {

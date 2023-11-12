@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FlatVillage.Maps
 {
-    public abstract class ScriptableObjectInfo : ScriptableObject, IObjectInfo
+    public abstract class ScriptableObjectInfo : ScriptableObject, IIndexableObject
     {
         [SerializeField] private string _name;
 

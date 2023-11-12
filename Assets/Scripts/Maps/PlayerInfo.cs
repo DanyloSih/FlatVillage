@@ -2,11 +2,11 @@
 
 namespace FlatVillage.Maps
 {
-    public class PlayerInfo : ObjectInfo
+    public class PlayerInfo : IndexableObject
     {
         private IPlayer _player;
 
-        public PlayerInfo(IPlayer player) : base(player.Name, player.ID)
+        public PlayerInfo(IPlayer player) : base(player.ID)
         {
             _player = player;
         }

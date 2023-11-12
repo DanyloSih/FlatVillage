@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4444464355787069242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4444464355787069240}
+  - component: {fileID: 4444464355787069241}
+  m_Layer: 0
+  m_Name: TileActionsInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4444464355787069240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444464355787069242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4444464355787069241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444464355787069242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce1285a77cece044ad5a77a905be528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileActions:
+  - _selectedIndex: 1
+    _heirObject:
+      rid: 8996178020798562319
+    _heirUnityObject: {fileID: 0}
+    _targetObject: {fileID: 4444464355787069241}
+    _isFolded: 1
+  - _selectedIndex: 1
+    _heirObject:
+      rid: 8996178020798562321
+    _heirUnityObject: {fileID: 0}
+    _targetObject: {fileID: 4444464355787069241}
+    _isFolded: 1
+  - _selectedIndex: 1
+    _heirObject:
+      rid: 8996178020798562323
+    _heirUnityObject: {fileID: 0}
+    _targetObject: {fileID: 4444464355787069241}
+    _isFolded: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 8996178020798562319
+      type: {class: BaseMapPlaceTileAction, ns: FlatVillage.Gameplay, asm: Assembly-CSharp}
+      data:
+        _itemInfo: {fileID: 11400000, guid: 3d41c9a713411a84c84758f416a2f939, type: 2}
+        _setTileItemInfo: {fileID: 11400000, guid: a798c35088d42f545bc0951abf698640, type: 2}
+    - rid: 8996178020798562321
+      type: {class: BaseMapPlaceTileAction, ns: FlatVillage.Gameplay, asm: Assembly-CSharp}
+      data:
+        _itemInfo: {fileID: 11400000, guid: d2b8c66b4d5f30540ac3ce105361d543, type: 2}
+        _setTileItemInfo: {fileID: 11400000, guid: d6da43c7dbbc1f6499250df8c1a91047, type: 2}
+    - rid: 8996178020798562323
+      type: {class: BaseMapPlaceTileAction, ns: FlatVillage.Gameplay, asm: Assembly-CSharp}
+      data:
+        _itemInfo: {fileID: 11400000, guid: 837da1f9ceb633c40944cfb7e4b9916f, type: 2}
+        _setTileItemInfo: {fileID: 11400000, guid: 02dd523b2586f074894bbe9f766c8875, type: 2}

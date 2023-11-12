@@ -17,7 +17,7 @@ namespace FlatVillage.WindowSystem
         [SerializeField] private Button _closeButton;
         [SerializeField] private TileActionView _tileActionViewPrefab;
 
-        private List<TileActionView> _tileActions = new List<TileActionView>();
+        private List<TileActionView> _tileActionsViews = new List<TileActionView>();
         private Camera _camera;
         private Vector2 _tileWorldPoint;
         private CameraSettings _cameraSettings;
@@ -29,20 +29,21 @@ namespace FlatVillage.WindowSystem
         }
 
         public void Initialize(
-            List<ITileAction> tileActions,
+            IEnumerable<ITileActionInfo> tileActions,
             Vector2 tileWorldPoint)
         {
+            OnHide();
             _tileWorldPoint = tileWorldPoint;
 
             foreach (var tileAction in tileActions)
             {
-                if (!tileAction.IsShown())
+                if (!tileAction.IsCanBeShown())
                 {
                     continue;
                 }
-                var tileActionInstance = Instantiate(_tileActionViewPrefab, _tileActionViewsContainer);
-                tileActionInstance.Initialize(tileAction);
-                _tileActions.Add(tileActionInstance);
+                var tileActionViewInstance = Instantiate(_tileActionViewPrefab, _tileActionViewsContainer);
+                tileActionViewInstance.Initialize(tileAction);
+                _tileActionsViews.Add(tileActionViewInstance);
             }
             UpdatePopupTransform();
         }
@@ -60,7 +61,7 @@ namespace FlatVillage.WindowSystem
             {
                 Destroy(_tileActionViewsContainer.GetChild(i).gameObject);
             }
-            _tileActions.Clear();
+            _tileActionsViews.Clear();
         }
 
         protected void Update()

@@ -9,10 +9,11 @@ namespace FlatVillage.Maps
     public class BasicMap : Map<int, TileInfo>
     {
         public BasicMap(
-            ScriptableObjectsInfoCollection<TileInfo> tilesInfo, 
+            IndexableScriptableObjectsCollection<TileInfo> tilesInfo, 
             Tilemap tilemap, 
-            IMapToTilemapApplier<int> mapToTilemapApplier) 
-            : base(tilesInfo, tilemap, mapToTilemapApplier)
+            IMapTilesUpdater<int> mapToTilemapApplier,
+            ITilemapMatrixPointsConverter<int> tilemapMatrixPointsConverter) 
+            : base(tilesInfo, tilemap, mapToTilemapApplier, tilemapMatrixPointsConverter)
         {
         }
     }
